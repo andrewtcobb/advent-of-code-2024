@@ -9,9 +9,7 @@ fun main() {
         val leftList = input.map { it.split(" ", limit = 2)[0].trim().toInt() }.sortedDescending()
         val rightList = input.map { it.split(" ", limit = 2)[1].trim().toInt() }.sortedDescending()
 
-        return leftList.withIndex().sumOf { (index, left) ->
-            abs(left - rightList[index])
-        }
+        return leftList.withIndex().sumOf { (index, left) -> abs(left - rightList[index]) }
     }
 
     fun part2(input: List<String>): Int {
@@ -19,9 +17,7 @@ fun main() {
         val rightList = input.map { it.split(" ", limit = 2)[1].trim().toInt() }
         val rightFrequencyMap = rightList.groupingBy { it }.eachCount()
 
-        return leftList.sumOf { left ->
-            rightFrequencyMap[left]?.let { it * left } ?: 0
-        }
+        return leftList.sumOf { left -> rightFrequencyMap[left]?.let { it * left } ?: 0 }
     }
 
 
